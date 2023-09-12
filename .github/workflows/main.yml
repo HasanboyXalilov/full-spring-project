@@ -41,7 +41,7 @@ jobs:
           context: .
           dockerfile: Dockerfile
           push: false
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-auto-deployment:today
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simple-app-project:latest
           build-args: |
             DB_URL=jdbc:postgresql://db:5432/first_db
             DB_USERNAME=first_user
@@ -63,7 +63,7 @@ jobs:
           context: .
           dockerfile: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-auto-deployment:today
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simple-app-project:latest
           build-args: |
             DB_URL=jdbc:postgresql://db:5432/first_db
             DB_USERNAME=first_user
