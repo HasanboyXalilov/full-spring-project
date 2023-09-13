@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -43,9 +44,9 @@ jobs:
           push: false
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simple-app-project:latest
           build-args: |
-            DB_URL=jdbc:postgresql://db:5432/first_db
-            DB_USERNAME=first_user
-            DB_PASSWORD=root
+            SPRING_DATASOURCE_URL:jdbc:postgresql://db:5432/first_db
+            SPRING_DATASOURCE_USERNAME:first_user
+            SPRING_DATASOURCE_PASSWORD:root
           registry: docker.io
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
